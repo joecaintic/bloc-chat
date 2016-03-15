@@ -10,3 +10,17 @@ body {
     width: 25%;
     height: 100%;
 }
+
+.room {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+.messages {
+	float: right;
+	width: 65%;
+	height: 100%;
+}
