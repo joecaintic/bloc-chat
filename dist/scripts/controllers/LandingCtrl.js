@@ -1,36 +1,17 @@
 (function() {
-     function LandingCtrl(Room, $uibModal, $scope) {
+     function LandingCtrl(Room,$uibModal,$cookies) {
          this.title="Bloc Chat";
          this.rooms=Room.all;
          this.open=open;
          this.roomName="Select a Room";
-         this.messages=[];
-         
+         this.username=$cookies.get("blocChatCurrentUser");
+
          
          this.setRoom = function (room) {
-		//    var roomId=room.$id;
              this.roomName = room.$value;
            this.roomVal=room.$id;
              this.messages=Room.getMessages(this.roomVal);
          };
-         
-   //      $scope.currentRoom={};
-         
-         
-      //   $rootScope.$on('SET_CURRENT_ROOM', function(event, ref){
-    //        var room = $scope.rooms[$scope.rooms.$indexFor(ref)]
-    //        $scope.setCurrentRoom(room);
-    //        });
-         
-        // console.log($scope);
-     //    $scope.setCurrentRoom=function(room) {
-    //         $scope.currentRoom=room;
-    //     };
-         
-        // lc.findRoom= function($index){
-        //     lc.rooms[$index] = $scope.room;
-         //};
-        // lc.selected="";
          
          this.animationsEnabled = true;
 
@@ -48,5 +29,5 @@
  
      angular
          .module('blocChat')
-         .controller('LandingCtrl', ['Room','$uibModal', LandingCtrl]);
+         .controller('LandingCtrl', ['Room','$uibModal','$cookies', LandingCtrl]);
  })();
