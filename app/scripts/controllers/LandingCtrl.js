@@ -4,7 +4,6 @@
          this.rooms=Room.all;
          this.open=open;
          this.roomName="Select a Room";
-         this.username=$cookies.get("blocChatCurrentUser");
 
          
          this.setRoom = function (room) {

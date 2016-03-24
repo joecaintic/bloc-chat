@@ -8,7 +8,7 @@ this.changeUsername = function() {
     else
         {
           $cookies.put("blocChatCurrentUser",this.username);
-            console.log($cookies.get("blocChatCurrentUser"));
+            document.getElementById("welcome").innerHTML='Welcome' + (' ' + this.username) +'!';
           $uibModalInstance.close(this);}
            };
          
