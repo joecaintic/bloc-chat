@@ -1,9 +1,21 @@
 (function() {
-     function LandingCtrl(Room,$uibModal,$cookies) {
+     function LandingCtrl(Room,Message,$uibModal) {
          this.title="Bloc Chat";
          this.rooms=Room.all;
-         this.open=open;
+         this.newRoom=newRoom;
          this.roomName="Select a Room";
+         this.newMessage="";
+         
+                  this.setRoom = function (room) {
+             this.roomName = room.$value;
+           this.roomVal=room.$id;
+             this.messages=Room.getMessages(this.roomVal);
+         };
+         
+         this.sendMessage=function() {
+            Message.send(this.newMessage, this.roomVal)
+         };
+             
 
          
          this.setRoom = function (room) {
@@ -14,7 +26,7 @@
          
          this.animationsEnabled = true;
 
-          function open() {
+          function newRoom() {
             var modalInstance = $uibModal.open({
                 animation: this.animationsEnabled,
                 templateUrl: '/templates/newroom.html',
@@ -28,5 +40,5 @@
  
      angular
          .module('blocChat')
-         .controller('LandingCtrl', ['Room','$uibModal','$cookies', LandingCtrl]);
+         .controller('LandingCtrl', ['Room','Message','$uibModal', LandingCtrl]);
  })();
