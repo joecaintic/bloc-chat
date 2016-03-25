@@ -7,7 +7,7 @@
       return {
       send: function(newMessage, currentRoomId) {
           messages.$add({ content: newMessage,
-                          roomId: Number(currentRoomId),
+                          roomId: currentRoomId,
                           sentAt: messageDate.toUTCString(),
                           username: $cookies.get("blocChatCurrentUser")
                         })

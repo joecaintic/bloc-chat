@@ -8,7 +8,7 @@
         all: rooms,
       
       getMessages: function(roomId) {
-        var msgRef=firebaseRef.child("messages").orderByChild('roomId').equalTo(Number(roomId));
+        var msgRef=firebaseRef.child("messages").orderByChild('roomId').equalTo(roomId);
           return $firebaseArray(msgRef);
         }
     }

@@ -19,6 +19,7 @@
 
 .messages {
 	float: right;
+    background-color: yellow;
 	width: 50%;
 	height: 75%;
 }
@@ -29,4 +30,5 @@
         min-width: 0;
     width: auto;
     display: inline;
+    background-color: aqua;
 }
